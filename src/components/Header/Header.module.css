@@ -1,0 +1,11 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  gap: 450px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 1440px;
+  padding: 24px 64px;
+  background: #f7f7f7;
+  border-bottom: 1px solid #f2f4f7;
+}
