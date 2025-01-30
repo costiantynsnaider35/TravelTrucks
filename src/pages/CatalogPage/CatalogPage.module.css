@@ -19,3 +19,13 @@
   font-weight: 500;
   line-height: 24px;
 }
+.VehicleEq {
+  position: absolute;
+  top: 304px;
+  left: 64px;
+}
+.VehicleType {
+  position: absolute;
+  top: 608px;
+  left: 64px;
+}

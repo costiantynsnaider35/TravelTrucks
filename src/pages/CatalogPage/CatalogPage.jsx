@@ -1,5 +1,7 @@
 import Header from "../../components/Header/Header";
 import Location from "../../components/Location/Location";
+import VehicleEq from "../../components/VehicleEq/VehicleEq";
+import VehicleType from "../../components/VehicleType/VehicleType";
 import s from "./CatalogPage.module.css";
 
 const CatalogPage = () => {
@@ -10,6 +12,12 @@ const CatalogPage = () => {
         <Location />
       </div>
       <h1 className={s.titleFilters}>Filters</h1>
+      <div className={s.VehicleEq}>
+        <VehicleEq />
+      </div>
+      <div className={s.VehicleType}>
+        <VehicleType />
+      </div>
     </div>
   );
 };
