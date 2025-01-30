@@ -1,0 +1,21 @@
+.catalogPage {
+  width: 1440px;
+  height: 1812px;
+  background-color: #fff;
+  position: relative;
+}
+.location {
+  position: absolute;
+  top: 120px;
+  left: 64px;
+}
+.titleFilters {
+  position: absolute;
+  top: 248px;
+  left: 64px;
+  color: #475467;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}

@@ -3,13 +3,10 @@ import "./App.css";
 import HomePage from "./pages/HomePage/HomePage";
 import CatalogPage from "./pages/CatalogPage/CatalogPage";
 import DetailsPage from "./pages/DetailsPage/DetailsPage";
-import { Suspense } from "react";
-import Loader from "./components/Loader/Loader";
 
 const App = () => {
   return (
     <div className="app">
-      <Suspense fallback={<Loader />}></Suspense>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/catalog" element={<CatalogPage />} />
