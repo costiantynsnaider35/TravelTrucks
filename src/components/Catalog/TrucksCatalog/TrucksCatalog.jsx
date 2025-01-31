@@ -4,7 +4,9 @@ import s from "./TrucksCatalog.module.css";
 const TrucksCatalog = () => {
   return (
     <div className={s.catalogContainer}>
-      <Trucks />
+      <div className={s.camperContainer}>
+        <Trucks />
+      </div>
     </div>
   );
 };
