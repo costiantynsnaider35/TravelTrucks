@@ -49,116 +49,122 @@ const Trucks = () => {
           <div className={s.camperInfo}>
             <div className={s.camperTitle}>
               <h3 className={s.camperModel}>{camper.name}</h3>
-              <p>
-                {camper.price.toFixed(2)}€
-                <svg>
+              <div className={s.camperPrice}>
+                <p>{camper.price.toFixed(2)}€</p>
+                <svg className={s.priceIcon}>
                   <use href="/public/symbol-defs.svg#icon-Property-1Default" />
                 </svg>
-              </p>
+              </div>
             </div>
-            <div>
+            <div className={s.camperLocation}>
+              <svg className={s.locationIcon}>
+                <use href="/public/symbol-defs.svg#icon-Property-1Default1" />
+              </svg>
               <p>
-                <svg>
-                  <use href="/public/symbol-defs.svg#icon-Property-1Default1" />
-                </svg>
                 {camper.rating}({camper.reviews.length}Reviews)
               </p>
+              <svg className={s.locationIconMap}>
+                <use href="/public/symbol-defs.svg#icon-Map" />
+              </svg>
               <p>{camper.location}</p>
             </div>
 
-            <p>{camper.description}</p>
+            <p className={s.camperDesc}>{camper.description}</p>
 
-            <div>
+            <div className={s.badgesContainer}>
               {camper.transmission && (
-                <div>
-                  <svg>
+                <div className={s.badgesItem}>
+                  <svg className={s.badgesIcon}>
                     <use href="/public/symbol-defs.svg#icon-diagram" />
                   </svg>
-                  <span>{firstLetter(camper.transmission)}</span>
+                  <span className={s.badgesTitle}>
+                    {firstLetter(camper.transmission)}
+                  </span>
                 </div>
               )}
               {camper.engine && (
-                <div>
-                  <svg>
+                <div className={s.badgesItem}>
+                  <svg className={s.badgesIcon}>
                     <use href="/public/symbol-defs.svg#icon-Group" />
                   </svg>
-                  <span>{firstLetter(camper.engine)}</span>
+                  <span className={s.badgesTitle}>
+                    {firstLetter(camper.engine)}
+                  </span>
                 </div>
               )}
               {camper.AC && (
-                <div>
-                  <svg>
+                <div className={s.badgesItem}>
+                  <svg className={s.badgesIcon}>
                     <use href="/public/symbol-defs.svg#icon-wind" />
                   </svg>
-                  <span>AC</span>
+                  <span className={s.badgesTitle}>AC</span>
                 </div>
               )}
               {camper.bathroom && (
-                <div>
-                  <svg>
+                <div className={s.badgesItem}>
+                  <svg className={s.badgesIcon}>
                     <use href="/public/symbol-defs.svg#icon-ph_shower" />
                   </svg>
-                  <span>Bathroom</span>
+                  <span className={s.badgesTitle}>Bathroom</span>
                 </div>
               )}
               {camper.kitchen && (
-                <div>
-                  <svg>
+                <div className={s.badgesItem}>
+                  <svg className={s.badgesIcon}>
                     <use href="/public/symbol-defs.svg#icon-Group1" />
                   </svg>
-                  <span>Kitchen</span>
+                  <span className={s.badgesTitle}>Kitchen</span>
                 </div>
               )}
               {camper.TV && (
-                <div>
-                  <svg>
+                <div className={s.badgesItem}>
+                  <svg className={s.badgesIcon}>
                     <use href="/public/symbol-defs.svg#icon-tv" />
                   </svg>
-                  <span>TV</span>
+                  <span className={s.badgesTitle}>TV</span>
                 </div>
               )}
               {camper.radio && (
-                <div>
-                  <svg>
+                <div className={s.badgesItem}>
+                  <svg className={s.badgesIcon}>
                     <use href="/public/symbol-defs.svg#icon-ui-radios" />
                   </svg>
-                  <span>Radio</span>
+                  <span className={s.badgesTitle}>Radio</span>
                 </div>
               )}
               {camper.refrigerator && (
-                <div>
-                  <svg>
+                <div className={s.badgesItem}>
+                  <svg className={s.badgesIcon}>
                     <use href="/public/symbol-defs.svg#icon-solar_fridge-outline" />
                   </svg>
-                  <span>Refrigerator</span>
+                  <span className={s.badgesTitle}>Refrigerator</span>
                 </div>
               )}
               {camper.microwave && (
-                <div>
-                  <svg>
+                <div className={s.badgesItem}>
+                  <svg className={s.badgesIcon1}>
                     <use href="/public/symbol-defs.svg#icon-lucide_microwave" />
                   </svg>
-                  <span>Microwave</span>
+                  <span className={s.badgesTitle}>Microwave</span>
                 </div>
               )}
               {camper.gas && (
-                <div>
-                  <svg>
+                <div className={s.badgesItem}>
+                  <svg className={s.badgesIcon1}>
                     <use href="/public/symbol-defs.svg#icon-hugeicons_gas-stove" />
                   </svg>
-                  <span>Gas</span>
+                  <span className={s.badgesTitle}>Gas</span>
                 </div>
               )}
               {camper.water && (
-                <div>
-                  <svg>
+                <div className={s.badgesItem}>
+                  <svg className={s.badgesIcon1}>
                     <use href="/public/symbol-defs.svg#icon-ion_water-outline" />
                   </svg>
-                  <span>Water</span>
+                  <span className={s.badgesTitle}>Water</span>
                 </div>
               )}
             </div>
-            <button>Show more</button>
           </div>
         </div>
       ))}

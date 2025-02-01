@@ -15,7 +15,7 @@
   border-radius: 20px;
   border: 1px solid #dadde1;
   background: #fff;
-  width: 840px;
+  width: 888px;
   height: 368px;
 }
 .camperImg {
@@ -39,14 +39,14 @@
   height: 320px;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: left;
   gap: 24px;
-  flex-shrink: 0;
 }
 .camperTitle {
   display: flex;
-  flex-direction: row;
-  width: 524px;
-  gap: 248px;
+  align-items: center;
+  align-self: stretch;
+  justify-content: space-between;
 }
 .camperModel {
   color: #101828;
@@ -54,4 +54,97 @@
   font-style: normal;
   font-weight: 600;
   line-height: 32px;
+}
+.camperPrice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+.camperPrice p {
+  color: #101828;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px;
+}
+.priceIcon {
+  width: 26px;
+  height: 24px;
+}
+.camperLocation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+.camperLocation p {
+  color: #101828;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  margin-right: 16px;
+}
+.locationIcon {
+  width: 16px;
+  height: 16px;
+  fill: #f2f4f7;
+}
+.locationIconMap {
+  width: 16px;
+  height: 16px;
+  fill: #101828;
+}
+.camperDesc {
+  width: 525px;
+  height: 24px;
+  color: #475467;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.badgesContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+  max-height: calc((48px + 8px) * 2);
+  overflow: hidden;
+}
+.badgesItem {
+  display: flex;
+  padding: 12px 18px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 100px;
+  background: #f2f4f7;
+  mix-blend-mode: multiply;
+}
+.badgesIcon {
+  width: 20px;
+  height: 20px;
+  fill: #101828;
+}
+
+.badgesIcon1 {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: #101828;
+}
+.badgesTitle {
+  color: #101828;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
 }
