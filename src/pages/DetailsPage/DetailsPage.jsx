@@ -1,26 +1,15 @@
 import Details from "../../components/Details/Details";
-import Features from "../../components/Features/Features";
-import Form from "../../components/Form/Form";
 import Header from "../../components/Header/Header";
-import Reviews from "../../components/Reviews/Reviews";
+import s from "./DetailsPage.module.css";
 
 const DetailsPage = () => {
   return (
-    <div>
+    <div className={s.detailsPage}>
       <div>
         <Header />
       </div>
-      <div>
+      <div className={s.details}>
         <Details />
-      </div>
-      <div>
-        <Features />
-      </div>
-      <div>
-        <Reviews />
-      </div>
-      <div>
-        <Form />
       </div>
     </div>
   );

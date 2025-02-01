@@ -1,0 +1,124 @@
+.detailsContainer {
+  display: flex;
+  flex-direction: column;
+  width: 1440px;
+  height: 1396px;
+  position: relative;
+}
+.detailsTitle {
+  display: flex;
+  width: 1312px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+.detailsModel {
+  color: #101828;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.detailsPrice {
+  color: #101828;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px;
+}
+.detailsIcon {
+  width: 26px;
+  height: 24px;
+}
+.detailsLocation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+.detailsLocation p {
+  color: #101828;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  margin-right: 16px;
+}
+.detailsIcon {
+  width: 16px;
+  height: 16px;
+  fill: #ffc531;
+}
+.detailsIconMap {
+  width: 16px;
+  height: 16px;
+  fill: #101828;
+}
+.detailsDesc {
+  width: 1312px;
+  color: #475467;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 60px;
+}
+.detailsGallery {
+  display: flex;
+  width: 1312px;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.detailsImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 312px;
+  width: 412px;
+}
+.detailsImage {
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center;
+}
+.detailsLoader {
+  margin: 674px 660px;
+}
+.detailsLinkTitle {
+  display: flex;
+  align-items: flex-start;
+  width: 312px;
+  height: 48px;
+  margin-bottom: 40px;
+}
+.detailsLinkItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+}
+.link {
+  color: #101828;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  text-decoration: none;
+  position: relative;
+}
+.active::after {
+  content: "";
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85px;
+  height: 5px;
+  background-color: #d84343;
+}
