@@ -5,6 +5,7 @@
   gap: 32px;
   width: 888px;
   height: 1568px;
+  position: relative;
 }
 .camperBoard {
   display: flex;
@@ -54,6 +55,9 @@
   font-style: normal;
   font-weight: 600;
   line-height: 32px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .camperPrice {
   display: flex;
@@ -147,4 +151,35 @@
   font-style: normal;
   font-weight: 500;
   line-height: 24px;
+}
+.camperLoader {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+}
+.badgesLink {
+  display: flex;
+  width: 166px;
+  height: 56px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 200px;
+  background-color: #e44848;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.badgesLink :active,
+.badgesLink :hover {
+  background-color: #d84343;
+}
+.badgesLink p {
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.08px;
+  display: block;
 }

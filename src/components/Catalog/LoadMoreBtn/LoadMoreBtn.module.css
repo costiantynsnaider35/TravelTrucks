@@ -1,0 +1,17 @@
+.loadMoreButton {
+  padding: 16px 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 200px;
+  border: 1px solid #dadde1;
+  color: #101828;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.08px;
+  cursor: pointer;
+  margin-left: 372px;
+  margin-bottom: 52px;
+}

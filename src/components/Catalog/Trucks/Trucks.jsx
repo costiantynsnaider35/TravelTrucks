@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-
+import { useEffect, useState } from "react";
 import s from "./Trucks.module.css";
 import {
   selectCampers,
@@ -9,24 +8,29 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllCampers } from "../../../redux/trucks/operations";
 import Loader from "../../Loader/Loader";
+import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
+import { Link } from "react-router-dom";
 
-const Trucks = () => {
+const Trucks = ({ visibleItems, loadMoreItems }) => {
   const dispatch = useDispatch();
   const campers = useSelector(selectCampers);
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
-
-  const firstLetter = (string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  };
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
 
   useEffect(() => {
     dispatch(fetchAllCampers());
   }, [dispatch]);
 
-  if (loading) {
+  const handleLoadMore = async () => {
+    setIsLoadingMore(true);
+    await loadMoreItems();
+    setIsLoadingMore(false);
+  };
+
+  if (loading && !isLoadingMore) {
     return (
-      <div>
+      <div className={s.camperLoader}>
         <Loader />
       </div>
     );
@@ -36,9 +40,13 @@ const Trucks = () => {
     return <div>Error: {error}</div>;
   }
 
+  const firstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
   return (
     <div className={s.camperCatalog}>
-      {campers.map((camper) => (
+      {campers.slice(0, visibleItems).map((camper) => (
         <div className={s.camperBoard} key={camper.id}>
           <div className={s.camperImg}>
             <img
@@ -165,9 +173,17 @@ const Trucks = () => {
                 </div>
               )}
             </div>
+            <div>
+              <Link className={s.badgesLink} to={`/catalog/${camper.id}`}>
+                <p>View Details</p>
+              </Link>
+            </div>
           </div>
         </div>
       ))}
+      {visibleItems < campers.length && (
+        <LoadMoreBtn onClick={handleLoadMore} isLoading={isLoadingMore} />
+      )}
     </div>
   );
 };
