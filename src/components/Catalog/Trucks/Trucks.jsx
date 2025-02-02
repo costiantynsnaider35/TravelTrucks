@@ -1,27 +1,33 @@
 import { useEffect, useState } from "react";
 import s from "./Trucks.module.css";
-import {
-  selectCampers,
-  selectError,
-  selectLoading,
-} from "../../../redux/trucks/selectors";
+
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllCampers } from "../../../redux/trucks/operations";
 import Loader from "../../Loader/Loader";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 import { Link } from "react-router-dom";
+import {
+  selectCampers,
+  selectError,
+  selectLoading,
+  selectLocation,
+} from "../../../redux/filters/selectors";
 
-const Trucks = ({ visibleItems, loadMoreItems }) => {
+const Trucks = () => {
   const dispatch = useDispatch();
-  const campers = useSelector(selectCampers);
+  const campers = useSelector(selectCampers) || [];
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [favorites, setFavorites] = useState([]);
+  const [visibleItems, setVisibleItems] = useState(4);
+  const location = useSelector(selectLocation);
 
   useEffect(() => {
-    dispatch(fetchAllCampers());
-  }, [dispatch]);
+    if (!campers.length) {
+      dispatch(fetchAllCampers());
+    }
+  }, [dispatch, campers.length]);
 
   useEffect(() => {
     const savedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
@@ -30,7 +36,7 @@ const Trucks = ({ visibleItems, loadMoreItems }) => {
 
   const handleLoadMore = async () => {
     setIsLoadingMore(true);
-    await loadMoreItems();
+    await setVisibleItems((prevValue) => prevValue + 4);
     setIsLoadingMore(false);
   };
 
@@ -44,6 +50,10 @@ const Trucks = ({ visibleItems, loadMoreItems }) => {
     setFavorites(updatedFavorites);
     localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
   };
+
+  const filteredCampers = campers.filter((camper) =>
+    camper.location.toLowerCase().includes(location.toLowerCase())
+  );
 
   if (loading && !isLoadingMore) {
     return (
@@ -63,7 +73,7 @@ const Trucks = ({ visibleItems, loadMoreItems }) => {
 
   return (
     <div className={s.camperCatalog}>
-      {campers.slice(0, visibleItems).map((camper) => (
+      {filteredCampers.slice(0, visibleItems).map((camper) => (
         <div className={s.camperBoard} key={camper.id}>
           <div className={s.camperImg}>
             <img
@@ -208,7 +218,7 @@ const Trucks = ({ visibleItems, loadMoreItems }) => {
           </div>
         </div>
       ))}
-      {visibleItems < campers.length && (
+      {visibleItems < filteredCampers.length && (
         <LoadMoreBtn onClick={handleLoadMore} isLoading={isLoadingMore} />
       )}
     </div>
