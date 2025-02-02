@@ -32,6 +32,7 @@ const Form = () => {
         onSubmit={(values, { setSubmitting, resetForm }) => {
           toast.success("Your booking was successful!");
           setSubmitting(false);
+          setStartDate(null);
           resetForm();
         }}
       >

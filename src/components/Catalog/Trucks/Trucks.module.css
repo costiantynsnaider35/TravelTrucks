@@ -75,6 +75,11 @@
 .priceIcon {
   width: 26px;
   height: 24px;
+  cursor: pointer;
+}
+
+.priceIcon.favorite {
+  fill: #e44848;
 }
 .camperLocation {
   display: flex;

@@ -17,15 +17,32 @@ const Trucks = ({ visibleItems, loadMoreItems }) => {
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     dispatch(fetchAllCampers());
   }, [dispatch]);
 
+  useEffect(() => {
+    const savedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    setFavorites(savedFavorites);
+  }, []);
+
   const handleLoadMore = async () => {
     setIsLoadingMore(true);
     await loadMoreItems();
     setIsLoadingMore(false);
+  };
+
+  const handleIconClick = (id) => {
+    let updatedFavorites;
+    if (favorites.includes(id)) {
+      updatedFavorites = favorites.filter((favoriteId) => favoriteId !== id);
+    } else {
+      updatedFavorites = [...favorites, id];
+    }
+    setFavorites(updatedFavorites);
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
   };
 
   if (loading && !isLoadingMore) {
@@ -59,7 +76,12 @@ const Trucks = ({ visibleItems, loadMoreItems }) => {
               <h3 className={s.camperModel}>{camper.name}</h3>
               <div className={s.camperPrice}>
                 <p>{camper.price.toFixed(2)}€</p>
-                <svg className={s.priceIcon}>
+                <svg
+                  className={`${s.priceIcon} ${
+                    favorites.includes(camper.id) ? s.favorite : ""
+                  }`}
+                  onClick={() => handleIconClick(camper.id)}
+                >
                   <use href="/public/symbol-defs.svg#icon-Property-1Default" />
                 </svg>
               </div>
@@ -68,9 +90,14 @@ const Trucks = ({ visibleItems, loadMoreItems }) => {
               <svg className={s.locationIcon}>
                 <use href="/public/symbol-defs.svg#icon-Property-1Default1" />
               </svg>
-              <p>
-                {camper.rating}({camper.reviews.length}Reviews)
-              </p>
+              <Link
+                to={`/catalog/${camper.id}/reviews`}
+                className={s.locationLink}
+              >
+                <p>
+                  {camper.rating}({camper.reviews.length} Reviews)
+                </p>
+              </Link>
               <svg className={s.locationIconMap}>
                 <use href="/public/symbol-defs.svg#icon-Map" />
               </svg>
