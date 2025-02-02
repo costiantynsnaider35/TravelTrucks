@@ -2,12 +2,13 @@
   display: flex;
   width: 631px;
   height: 588px;
-  padding: 44px 80px;
+  padding: 44px 52px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
   background: #f7f7f7;
+  gap: 100px;
 }
 .featBadges {
   display: flex;
@@ -15,10 +16,10 @@
   justify-content: flex-start;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 8px;
   align-self: stretch;
-  max-height: calc((48px + 8px) * 2);
+  min-height: calc((48px + 8px) * 2);
   overflow: hidden;
+  gap: 8px;
   width: 527px;
   height: 104px;
 }
@@ -57,4 +58,47 @@
   align-items: flex-start;
   justify-content: flex-start;
   gap: 24px;
+  width: 527px;
+  height: 296px;
+}
+.vehicleTitle {
+  color: #101828;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+}
+.icon {
+  width: 527px;
+  height: 0px;
+  border: 1px solid #dadde1;
+}
+.vehicleInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+.vehicleList {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+}
+.vehicleItem {
+  color: #101828;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+.vehicleItemInfo {
+  color: #101828;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
 }

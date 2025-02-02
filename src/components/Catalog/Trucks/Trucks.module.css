@@ -120,8 +120,10 @@
   align-items: flex-start;
   gap: 8px;
   align-self: stretch;
-  max-height: calc((48px + 8px) * 2);
+  min-height: calc((48px + 8px) * 2);
   overflow: hidden;
+  width: 524px;
+  height: 104px;
 }
 .badgesItem {
   display: flex;

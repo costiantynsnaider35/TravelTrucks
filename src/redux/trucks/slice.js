@@ -1,17 +1,10 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
-import {
-  fetchAllCampers,
-  fetchCamperById,
-  fetchFeatures,
-  fetchReviewsByCamperId,
-} from "./operations";
+import { fetchAllCampers, fetchCamperById } from "./operations";
 
 const initialState = {
   items: [],
   loading: false,
   error: null,
-  features: [],
-  reviews: [],
   selectedCamper: null,
 };
 
@@ -23,44 +16,20 @@ const camperSlice = createSlice({
       .addCase(fetchAllCampers.fulfilled, (state, action) => {
         state.items = action.payload;
       })
-      .addCase(fetchCamperById.fulfilled, (state, action) => {
-        state.selectedCamper = action.payload;
-      })
-      .addCase(fetchFeatures.fulfilled, (state, action) => {
-        state.features = action.payload;
-      })
-      .addCase(fetchReviewsByCamperId.fulfilled, (state, action) => {
-        state.reviews = action.payload;
-      })
       .addMatcher(
-        isAnyOf(
-          fetchAllCampers.pending,
-          fetchCamperById.pending,
-          fetchFeatures.pending,
-          fetchReviewsByCamperId.pending
-        ),
+        isAnyOf(fetchAllCampers.pending, fetchCamperById.pending),
         (state) => {
           state.loading = true;
         }
       )
       .addMatcher(
-        isAnyOf(
-          fetchAllCampers.fulfilled,
-          fetchCamperById.fulfilled,
-          fetchFeatures.fulfilled,
-          fetchReviewsByCamperId.fulfilled
-        ),
+        isAnyOf(fetchAllCampers.fulfilled, fetchCamperById.fulfilled),
         (state) => {
           state.loading = false;
         }
       )
       .addMatcher(
-        isAnyOf(
-          fetchAllCampers.rejected,
-          fetchCamperById.rejected,
-          fetchFeatures.rejected,
-          fetchReviewsByCamperId.rejected
-        ),
+        isAnyOf(fetchAllCampers.rejected, fetchCamperById.rejected),
         (state, action) => {
           state.loading = false;
           state.error = action.payload;

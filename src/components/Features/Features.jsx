@@ -107,37 +107,50 @@ const Features = () => {
         )}
       </div>
       <div className={s.featVehicle}>
-        <h2>Vehicle details</h2>
-        {camper.form && (
-          <div className={s.detailItem}>
-            <strong>Form:</strong> {camper.form}
-          </div>
-        )}
-        {camper.length && (
-          <div className={s.detailItem}>
-            <strong>Length:</strong> {camper.length}
-          </div>
-        )}
-        {camper.width && (
-          <div className={s.detailItem}>
-            <strong>Width:</strong> {camper.width}
-          </div>
-        )}
-        {camper.height && (
-          <div className={s.detailItem}>
-            <strong>Height:</strong> {camper.height}
-          </div>
-        )}
-        {camper.tank && (
-          <div className={s.detailItem}>
-            <strong>Tank:</strong> {camper.tank}
-          </div>
-        )}
-        {camper.consumption && (
-          <div className={s.detailItem}>
-            <strong>Consumption:</strong> {camper.consumption}
-          </div>
-        )}
+        <h2 className={s.vehicleTitle}>Vehicle details</h2>
+        <svg className={s.icon}>
+          <use href="/public/symbol-defs.svg#icon-divider" />
+        </svg>
+        <div className={s.vehicleInfo}>
+          {camper.form && (
+            <div className={s.vehicleList}>
+              <p className={s.vehicleItem}>Form</p>
+              <span className={s.vehicleItemInfo}>
+                {firstLetter(camper.form)}
+              </span>
+            </div>
+          )}
+          {camper.length && (
+            <div className={s.vehicleList}>
+              <p className={s.vehicleItem}>Length</p>
+              <span className={s.vehicleItemInfo}>{camper.length}</span>
+            </div>
+          )}
+          {camper.width && (
+            <div className={s.vehicleList}>
+              <p className={s.vehicleItem}>Width</p>
+              <span className={s.vehicleItemInfo}>{camper.width}</span>
+            </div>
+          )}
+          {camper.height && (
+            <div className={s.vehicleList}>
+              <p className={s.vehicleItem}>Height</p>
+              <span className={s.vehicleItemInfo}>{camper.height}</span>
+            </div>
+          )}
+          {camper.tank && (
+            <div className={s.vehicleList}>
+              <p className={s.vehicleItem}>Tank</p>
+              <span className={s.vehicleItemInfo}>{camper.tank}</span>
+            </div>
+          )}
+          {camper.consumption && (
+            <div className={s.vehicleList}>
+              <p className={s.vehicleItem}>Consumption</p>
+              <span className={s.vehicleItemInfo}>{camper.consumption}</span>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
