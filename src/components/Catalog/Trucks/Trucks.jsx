@@ -1,42 +1,109 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import s from "./Trucks.module.css";
-
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAllCampers } from "../../../redux/trucks/operations";
+
 import Loader from "../../Loader/Loader";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 import { Link } from "react-router-dom";
 import {
   selectCampers,
-  selectError,
   selectLoading,
   selectLocation,
+  selectVehicleEquipmentFilter,
+  selectVehicleFormFilter,
 } from "../../../redux/filters/selectors";
+import { fetchAllCampers } from "../../../redux/filters/operations";
 
 const Trucks = () => {
   const dispatch = useDispatch();
-  const campers = useSelector(selectCampers) || [];
+  const campersData = useSelector(selectCampers);
   const loading = useSelector(selectLoading);
-  const error = useSelector(selectError);
+  const location = useSelector(selectLocation);
+  const selectedForms = useSelector(selectVehicleFormFilter);
+  const selectedEquipment = useSelector(selectVehicleEquipmentFilter);
+
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [favorites, setFavorites] = useState([]);
   const [visibleItems, setVisibleItems] = useState(4);
-  const location = useSelector(selectLocation);
+  const [displayedCampers, setDisplayedCampers] = useState([]);
+  const [inputError, setInputError] = useState(false);
+  const [isDataLoaded, setIsDataLoaded] = useState(false);
+
+  const campers = useMemo(() => campersData || [], [campersData]);
 
   useEffect(() => {
-    if (!campers.length) {
+    if (campers.length === 0) {
       dispatch(fetchAllCampers());
+    } else {
+      setDisplayedCampers(campers);
+      setIsDataLoaded(true);
     }
-  }, [dispatch, campers.length]);
+  }, [dispatch, campers]);
 
   useEffect(() => {
     const savedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
     setFavorites(savedFavorites);
   }, []);
 
-  const handleLoadMore = async () => {
+  useEffect(() => {
+    let filtered = campers;
+
+    if (location.trim()) {
+      filtered = filtered.filter((camper) =>
+        camper.location.toLowerCase().includes(location.toLowerCase())
+      );
+    }
+
+    if (selectedForms.length) {
+      filtered = filtered.filter((camper) =>
+        selectedForms.includes(camper.form)
+      );
+    }
+    // Применение фильтров оборудования
+    selectedEquipment.forEach((filter) => {
+      console.log(`Applying filter: ${filter.toLowerCase()}`);
+      filtered = filtered.filter((camper) => {
+        console.log(`Camper ${camper.id}:`, camper);
+        if (filter.toLowerCase() === "transmission") {
+          return (
+            camper[filter.toLowerCase()] &&
+            camper[filter.toLowerCase()] === "automatic"
+          );
+        } else {
+          return (
+            camper[filter.toLowerCase()] &&
+            camper[filter.toLowerCase()] === true
+          );
+        }
+      });
+    });
+
+    setDisplayedCampers(filtered);
+
+    if (isDataLoaded) {
+      setInputError(filtered.length === 0);
+    }
+
+    if (visibleItems > filtered.length) {
+      setVisibleItems(filtered.length);
+    } else if (filtered.length > 4 && visibleItems === 0) {
+      setVisibleItems(4);
+    }
+  }, [
+    campers,
+    location,
+    selectedForms,
+    selectedEquipment,
+    visibleItems,
+    isDataLoaded,
+  ]);
+
+  const handleLoadMore = () => {
     setIsLoadingMore(true);
-    await setVisibleItems((prevValue) => prevValue + 4);
+    setVisibleItems((prevValue) => {
+      const newValue = prevValue + 4;
+      return newValue;
+    });
     setIsLoadingMore(false);
   };
 
@@ -51,10 +118,6 @@ const Trucks = () => {
     localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
   };
 
-  const filteredCampers = campers.filter((camper) =>
-    camper.location.toLowerCase().includes(location.toLowerCase())
-  );
-
   if (loading && !isLoadingMore) {
     return (
       <div className={s.camperLoader}>
@@ -63,17 +126,14 @@ const Trucks = () => {
     );
   }
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
   const firstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
   return (
     <div className={s.camperCatalog}>
-      {filteredCampers.slice(0, visibleItems).map((camper) => (
+      {inputError && <p>Camper not found!</p>}
+      {displayedCampers.slice(0, visibleItems).map((camper) => (
         <div className={s.camperBoard} key={camper.id}>
           <div className={s.camperImg}>
             <img
@@ -218,11 +278,10 @@ const Trucks = () => {
           </div>
         </div>
       ))}
-      {visibleItems < filteredCampers.length && (
+      {visibleItems < displayedCampers.length && (
         <LoadMoreBtn onClick={handleLoadMore} isLoading={isLoadingMore} />
       )}
     </div>
   );
 };
-
 export default Trucks;

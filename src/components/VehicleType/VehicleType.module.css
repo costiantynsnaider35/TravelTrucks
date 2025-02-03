@@ -35,10 +35,10 @@
   border-radius: 12px;
   border: 1px solid #dadde1;
   mix-blend-mode: multiply;
+  cursor: pointer;
   transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.typeList:active,
-.typeList:hover {
+.active {
   border: 1px solid #e44848;
 }
 

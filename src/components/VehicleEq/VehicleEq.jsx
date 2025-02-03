@@ -1,6 +1,28 @@
+import { selectVehicleEquipmentFilter } from "../../redux/filters/selectors";
+import { setVehicleEquipmentFilter } from "../../redux/filters/slice";
 import s from "./VehicleEq.module.css";
+import { useDispatch, useSelector } from "react-redux";
 
 const VehicleEq = () => {
+  const dispatch = useDispatch();
+  const selectedEquipment = useSelector(selectVehicleEquipmentFilter);
+  const activeItems = selectedEquipment || [];
+
+  const handleItemClick = (item) => {
+    const newSelectedItems = activeItems.includes(item)
+      ? activeItems.filter((i) => i !== item)
+      : [...activeItems, item];
+    dispatch(setVehicleEquipmentFilter(newSelectedItems));
+  };
+
+  const equipment = [
+    { id: "ac", label: "AC", icon: "icon-wind" },
+    { id: "automatic", label: "Automatic", icon: "icon-diagram" },
+    { id: "kitchen", label: "Kitchen", icon: "icon-Group1" },
+    { id: "tv", label: "TV", icon: "icon-tv" },
+    { id: "bathroom", label: "Bathroom", icon: "icon-ph_shower" },
+  ];
+
   return (
     <div className={s.eqContainer}>
       <h2 className={s.eqTitle}>Vehicle equipment</h2>
@@ -8,46 +30,22 @@ const VehicleEq = () => {
         <use href="/public/symbol-defs.svg#icon-divider" />
       </svg>
       <ul className={s.eqBoard}>
-        <li className={s.eqList}>
-          <div className={s.eqItem}>
-            <svg className={s.eqIcon}>
-              <use href="/public/symbol-defs.svg#icon-wind" />
-            </svg>
-            <p className={s.iconTitle}>AC</p>
-          </div>
-        </li>
-        <li className={s.eqList}>
-          <div className={s.eqItem}>
-            <svg className={s.eqIcon}>
-              <use href="/public/symbol-defs.svg#icon-diagram" />
-            </svg>
-            <p className={s.iconTitle}>Automatic</p>
-          </div>
-        </li>
-        <li className={s.eqList}>
-          <div className={s.eqItem}>
-            <svg className={s.eqIcon}>
-              <use href="/public/symbol-defs.svg#icon-Group" />
-            </svg>
-            <p className={s.iconTitle}>Kitchen</p>
-          </div>
-        </li>
-        <li className={s.eqList}>
-          <div className={s.eqItem}>
-            <svg className={s.eqIcon}>
-              <use href="/public/symbol-defs.svg#icon-tv" />
-            </svg>
-            <p className={s.iconTitle}>TV</p>
-          </div>
-        </li>
-        <li className={s.eqList}>
-          <div className={s.eqItem}>
-            <svg className={s.eqIcon}>
-              <use href="/public/symbol-defs.svg#icon-ph_shower" />
-            </svg>
-            <p className={s.iconTitle}>Bathroom</p>
-          </div>
-        </li>
+        {equipment.map((item) => (
+          <li
+            key={item.id}
+            className={`${s.eqList} ${
+              activeItems.includes(item.id) ? s.selected : ""
+            }`}
+            onClick={() => handleItemClick(item.id)}
+          >
+            <div className={s.eqItem}>
+              <svg className={s.eqIcon}>
+                <use href={`/public/symbol-defs.svg#${item.icon}`} />
+              </svg>
+              <p className={s.iconTitle}>{item.label}</p>
+            </div>
+          </li>
+        ))}
       </ul>
     </div>
   );

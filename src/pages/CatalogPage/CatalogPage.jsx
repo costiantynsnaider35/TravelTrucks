@@ -10,10 +10,12 @@ const CatalogPage = () => {
     <div className={s.catalogPage}>
       <Header />
       <div className={s.location}>
+        <p>Location</p>
         <Location />
       </div>
-      <h1 className={s.titleFilters}>Filters</h1>
+
       <div className={s.VehicleEq}>
+        <p className={s.filtersTitle}>Filters</p>
         <VehicleEq />
       </div>
       <div className={s.VehicleType}>

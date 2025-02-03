@@ -4,6 +4,7 @@
   align-items: flex-start;
   gap: 8px;
   width: 360px;
+  position: relative;
 }
 .inputTitle {
   align-self: stretch;
@@ -46,4 +47,9 @@
 
 .input::placeholder {
   color: #6c717b;
+}
+.loaderLoc {
+  position: absolute;
+  top: 0%;
+  left: 0%;
 }

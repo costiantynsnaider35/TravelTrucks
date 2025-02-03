@@ -9,31 +9,38 @@ const initialState = {
   items: [],
   loading: false,
   error: null,
-  selectedForms: [],
   location: "",
+  selectedForms: [],
+  selectedEquipment: [],
 };
 
 const filtersSlice = createSlice({
   name: "filters",
   initialState,
   reducers: {
+    setLocationFilter: (state, action) => {
+      state.location = action.payload;
+    },
     setVehicleFormFilter: (state, action) => {
       state.selectedForms = action.payload;
     },
-    setLocationFilter: (state, action) => {
-      state.location = action.payload;
+    setVehicleEquipmentFilter: (state, action) => {
+      state.selectedEquipment = action.payload;
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchAllCampers.fulfilled, (state, action) => {
         state.items = action.payload;
+        state.error = null;
       })
       .addCase(fetchCampersByLocation.fulfilled, (state, action) => {
         state.items = action.payload;
+        state.error = null;
       })
       .addCase(fetchCampersByForm.fulfilled, (state, action) => {
         state.items = action.payload;
+        state.error = null;
       })
       .addMatcher(
         (action) =>
@@ -42,6 +49,7 @@ const filtersSlice = createSlice({
             action.type.startsWith("filters/fetchCampersByForm")),
         (state) => {
           state.loading = true;
+          state.error = null;
         }
       )
       .addMatcher(
@@ -66,5 +74,9 @@ const filtersSlice = createSlice({
   },
 });
 
-export const { setVehicleFormFilter, setLocationFilter } = filtersSlice.actions;
+export const {
+  setVehicleFormFilter,
+  setLocationFilter,
+  setVehicleEquipmentFilter,
+} = filtersSlice.actions;
 export default filtersSlice.reducer;

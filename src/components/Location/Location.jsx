@@ -1,8 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import s from "./Location.module.css";
-import { useEffect, useState } from "react";
-import Loader from "../Loader/Loader";
-import { selectError, selectLoading } from "../../redux/filters/selectors";
+import { useCallback, useEffect, useState } from "react";
+import { selectError } from "../../redux/filters/selectors";
 import {
   fetchAllCampers,
   fetchCampersByLocation,
@@ -12,10 +11,9 @@ import { setLocationFilter } from "../../redux/filters/slice";
 const Location = () => {
   const dispatch = useDispatch();
   const [location, setLocation] = useState("");
-  const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
 
-  useEffect(() => {
+  const handleFetchCampers = useCallback(() => {
     if (location.trim()) {
       dispatch(fetchCampersByLocation(location.trim()));
     } else {
@@ -23,21 +21,19 @@ const Location = () => {
     }
   }, [location, dispatch]);
 
+  useEffect(() => {
+    handleFetchCampers();
+  }, [location, handleFetchCampers]);
+
   const handleLocationChange = (e) => {
     const value = e.target.value;
     setLocation(value);
-    if (value.trim()) {
-      dispatch(setLocationFilter(value));
-      dispatch(fetchCampersByLocation(value.trim()));
-    } else {
-      dispatch(setLocationFilter(""));
-      dispatch(fetchAllCampers());
-    }
+    dispatch(setLocationFilter(value));
+    handleFetchCampers();
   };
 
   return (
     <div className={s.location}>
-      <p className={s.inputTitle}>Location</p>
       <div className={s.inputContainer}>
         <svg className={s.inputIcon}>
           <use href="/symbol-defs.svg#icon-Map" />
@@ -50,8 +46,11 @@ const Location = () => {
           onChange={handleLocationChange}
         />
       </div>
-      {loading && <Loader />}
-      {error && <div>Error: {error}</div>}
+      {error && error === "Location not found" ? (
+        <div>Location not found!</div>
+      ) : (
+        error && <div>Error: {error}</div>
+      )}
     </div>
   );
 };
