@@ -173,13 +173,13 @@ const Trucks = () => {
                   }`}
                   onClick={() => handleIconClick(camper.id)}
                 >
-                  <use href="../../../public/symbol-defs.svg#icon-Property-1Default" />
+                  <use href="/src/img/symbol-defs.svg#icon-Property-1Default" />
                 </svg>
               </div>
             </div>
             <div className={s.camperLocation}>
               <svg className={s.locationIcon}>
-                <use href="../../../public/symbol-defs.svg#icon-Property-1Default1" />
+                <use href="/src/img/symbol-defs.svg#icon-Property-1Default1" />
               </svg>
               <Link
                 to={`/catalog/${camper.id}/reviews`}
@@ -193,7 +193,7 @@ const Trucks = () => {
                 </p>
               </Link>
               <svg className={s.locationIconMap}>
-                <use href="../../../public/symbol-defs.svg#icon-Map" />
+                <use href="/src/img/symbol-defs.svg#icon-Map" />
               </svg>
               <p>{camper.location}</p>
             </div>
@@ -204,7 +204,7 @@ const Trucks = () => {
               {camper.transmission && (
                 <div className={s.badgesItem}>
                   <svg className={s.badgesIcon}>
-                    <use href="../../../public/symbol-defs.svg#icon-diagram" />
+                    <use href="/src/img/symbol-defs.svg#icon-diagram" />
                   </svg>
                   <span className={s.badgesTitle}>
                     {firstLetter(camper.transmission)}
@@ -214,7 +214,7 @@ const Trucks = () => {
               {camper.engine && (
                 <div className={s.badgesItem}>
                   <svg className={s.badgesIcon}>
-                    <use href="../../../public/symbol-defs.svg#icon-Group" />
+                    <use href="/src/img/symbol-defs.svg#icon-Group" />
                   </svg>
                   <span className={s.badgesTitle}>
                     {firstLetter(camper.engine)}
@@ -224,7 +224,7 @@ const Trucks = () => {
               {camper.AC && (
                 <div className={s.badgesItem}>
                   <svg className={s.badgesIcon}>
-                    <use href="../../../public/symbol-defs.svg#icon-wind" />
+                    <use href="/src/img/symbol-defs.svg#icon-wind" />
                   </svg>
                   <span className={s.badgesTitle}>AC</span>
                 </div>
@@ -232,7 +232,7 @@ const Trucks = () => {
               {camper.bathroom && (
                 <div className={s.badgesItem}>
                   <svg className={s.badgesIcon}>
-                    <use href="../../../public/symbol-defs.svg#icon-ph_shower" />
+                    <use href="/src/img/symbol-defs.svg#icon-ph_shower" />
                   </svg>
                   <span className={s.badgesTitle}>Bathroom</span>
                 </div>
@@ -240,7 +240,7 @@ const Trucks = () => {
               {camper.kitchen && (
                 <div className={s.badgesItem}>
                   <svg className={s.badgesIcon}>
-                    <use href="../../../public/symbol-defs.svg#icon-Group1" />
+                    <use href="/src/img/symbol-defs.svg#icon-Group1" />
                   </svg>
                   <span className={s.badgesTitle}>Kitchen</span>
                 </div>
@@ -248,7 +248,7 @@ const Trucks = () => {
               {camper.TV && (
                 <div className={s.badgesItem}>
                   <svg className={s.badgesIcon}>
-                    <use href="/public/symbol-defs.svg#icon-tv" />
+                    <use href="/src/img/symbol-defs.svg#icon-tv" />
                   </svg>
                   <span className={s.badgesTitle}>TV</span>
                 </div>
@@ -256,7 +256,7 @@ const Trucks = () => {
               {camper.radio && (
                 <div className={s.badgesItem}>
                   <svg className={s.badgesIcon}>
-                    <use href="../../../public/symbol-defs.svg#icon-ui-radios" />
+                    <use href="/src/img/symbol-defs.svg#icon-ui-radios" />
                   </svg>
                   <span className={s.badgesTitle}>Radio</span>
                 </div>
@@ -264,7 +264,7 @@ const Trucks = () => {
               {camper.refrigerator && (
                 <div className={s.badgesItem}>
                   <svg className={s.badgesIcon}>
-                    <use href="../../../public/symbol-defs.svg#icon-solar_fridge-outline" />
+                    <use href="/src/img/symbol-defs.svg#icon-solar_fridge-outline" />
                   </svg>
                   <span className={s.badgesTitle}>Refrigerator</span>
                 </div>
@@ -272,7 +272,7 @@ const Trucks = () => {
               {camper.microwave && (
                 <div className={s.badgesItem}>
                   <svg className={s.badgesIcon1}>
-                    <use href="../../../public/symbol-defs.svg#icon-lucide_microwave" />
+                    <use href="/src/img/symbol-defs.svg#icon-lucide_microwave" />
                   </svg>
                   <span className={s.badgesTitle}>Microwave</span>
                 </div>
@@ -280,7 +280,7 @@ const Trucks = () => {
               {camper.gas && (
                 <div className={s.badgesItem}>
                   <svg className={s.badgesIcon1}>
-                    <use href="../../../public/symbol-defs.svg#icon-hugeicons_gas-stove" />
+                    <use href="/src/img/symbol-defs.svg#icon-hugeicons_gas-stove" />
                   </svg>
                   <span className={s.badgesTitle}>Gas</span>
                 </div>
@@ -288,7 +288,7 @@ const Trucks = () => {
               {camper.water && (
                 <div className={s.badgesItem}>
                   <svg className={s.badgesIcon1}>
-                    <use href="../../../public/symbol-defs.svg#icon-ion_water-outline" />
+                    <use href="/src/img/symbol-defs.svg#icon-ion_water-outline" />
                   </svg>
                   <span className={s.badgesTitle}>Water</span>
                 </div>

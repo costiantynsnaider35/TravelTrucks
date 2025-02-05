@@ -55,13 +55,13 @@ const Details = () => {
         <h3 className={s.detailsModel}>{camper.name}</h3>
         <div className={s.detailsLocation}>
           <svg className={s.detailsIcon}>
-            <use href="../../../public/symbol-defs.svg#icon-Property-1Default1" />
+            <use href="/src/img/symbol-defs.svg#icon-Property-1Default1" />
           </svg>
           <p>
             {camper.rating}({camper.reviews.length}Reviews)
           </p>
           <svg className={s.detailsIconMap}>
-            <use href="../../../public/symbol-defs.svg#icon-Map" />
+            <use href="/src/img/symbol-defs.svg#icon-Map" />
           </svg>
           <p>{camper.location}</p>
         </div>

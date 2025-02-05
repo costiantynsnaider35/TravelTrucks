@@ -18,7 +18,7 @@ const Features = () => {
           {camper.transmission && (
             <div className={s.featBadgesItem}>
               <svg className={s.featBadgesIcon}>
-                <use href="../../../public/symbol-defs.svg#icon-diagram" />
+                <use href="/src/img/symbol-defs.svg#icon-diagram" />
               </svg>
               <span className={s.featBadgesTitle}>
                 {firstLetter(camper.transmission)}
@@ -28,7 +28,7 @@ const Features = () => {
           {camper.engine && (
             <div className={s.featBadgesItem}>
               <svg className={s.featBadgesIcon}>
-                <use href="../../../public/symbol-defs.svg#icon-Group" />
+                <use href="/src/img/symbol-defs.svg#icon-Group" />
               </svg>
               <span className={s.featBadgesTitle}>
                 {firstLetter(camper.engine)}
@@ -38,7 +38,7 @@ const Features = () => {
           {camper.AC && (
             <div className={s.featBadgesItem}>
               <svg className={s.featBadgesIcon}>
-                <use href="../../../public/symbol-defs.svg#icon-wind" />
+                <use href="/src/img/symbol-defs.svg#icon-wind" />
               </svg>
               <span className={s.featBadgesTitle}>AC</span>
             </div>
@@ -46,7 +46,7 @@ const Features = () => {
           {camper.bathroom && (
             <div className={s.featBadgesItem}>
               <svg className={s.featBadgesIcon}>
-                <use href="../../../public/symbol-defs.svg#icon-ph_shower" />
+                <use href="/src/img/symbol-defs.svg#icon-ph_shower" />
               </svg>
               <span className={s.featBadgesTitle}>Bathroom</span>
             </div>
@@ -54,7 +54,7 @@ const Features = () => {
           {camper.kitchen && (
             <div className={s.featBadgesItem}>
               <svg className={s.featBadgesIcon}>
-                <use href="../../../public/symbol-defs.svg#icon-Group1" />
+                <use href="/src/img/symbol-defs.svg#icon-Group1" />
               </svg>
               <span className={s.featBadgesTitle}>Kitchen</span>
             </div>
@@ -62,7 +62,7 @@ const Features = () => {
           {camper.TV && (
             <div className={s.featBadgesItem}>
               <svg className={s.featBadgesIcon}>
-                <use href="../../../public/symbol-defs.svg#icon-tv" />
+                <use href="/src/img/symbol-defs.svg#icon-tv" />
               </svg>
               <span className={s.featBadgesTitle}>TV</span>
             </div>
@@ -70,7 +70,7 @@ const Features = () => {
           {camper.radio && (
             <div className={s.featBadgesItem}>
               <svg className={s.featBadgesIcon}>
-                <use href="../../../public/symbol-defs.svg#icon-ui-radios" />
+                <use href="/src/img/symbol-defs.svg#icon-ui-radios" />
               </svg>
               <span className={s.featBadgesTitle}>Radio</span>
             </div>
@@ -78,7 +78,7 @@ const Features = () => {
           {camper.refrigerator && (
             <div className={s.featBadgesItem}>
               <svg className={s.featBadgesIcon}>
-                <use href="/public/symbol-defs.svg#icon-solar_fridge-outline" />
+                <use href="/src/img/symbol-defs.svg#icon-solar_fridge-outline" />
               </svg>
               <span className={s.featBadgesTitle}>Refrigerator</span>
             </div>
@@ -86,7 +86,7 @@ const Features = () => {
           {camper.microwave && (
             <div className={s.featBadgesItem}>
               <svg className={s.featBadgesIcon1}>
-                <use href="/public/symbol-defs.svg#icon-lucide_microwave" />
+                <use href="/src/img/symbol-defs.svg#icon-lucide_microwave" />
               </svg>
               <span className={s.featBadgesTitle}>Microwave</span>
             </div>
@@ -94,7 +94,7 @@ const Features = () => {
           {camper.gas && (
             <div className={s.featBadgesItem}>
               <svg className={s.featBadgesIcon1}>
-                <use href="../../../public/symbol-defs.svg#icon-hugeicons_gas-stove" />
+                <use href="/src/img/symbol-defs.svg#icon-hugeicons_gas-stove" />
               </svg>
               <span className={s.featBadgesTitle}>Gas</span>
             </div>
@@ -102,7 +102,7 @@ const Features = () => {
           {camper.water && (
             <div className={s.featBadgesItem}>
               <svg className={s.featBadgesIcon1}>
-                <use href="../../../public/symbol-defs.svg#icon-ion_water-outline" />
+                <use href="/src/img/symbol-defs.svg#icon-ion_water-outline" />
               </svg>
               <span className={s.featBadgesTitle}>Water</span>
             </div>
@@ -112,7 +112,7 @@ const Features = () => {
         <div className={s.featVehicle}>
           <h2 className={s.vehicleTitle}>Vehicle details</h2>
           <svg className={s.icon}>
-            <use href="../../../public/symbol-defs.svg#icon-divider" />
+            <use href="/src/img/symbol-defs.svg#icon-divider" />
           </svg>
           <div className={s.vehicleInfo}>
             {camper.form && (
