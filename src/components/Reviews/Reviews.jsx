@@ -22,7 +22,7 @@ const Reviews = () => {
     for (let i = 0; i < 5; i++) {
       stars.push(
         <svg key={i} className={i < rating ? s.starFilled : s.starEmpty}>
-          <use href="/public/symbol-defs.svg#icon-Property-1Default1" />
+          <use href="../../../public/symbol-defs.svg#icon-Property-1Default1" />
         </svg>
       );
     }

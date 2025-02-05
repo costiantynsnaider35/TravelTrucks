@@ -27,7 +27,7 @@ const VehicleEq = () => {
     <div className={s.eqContainer}>
       <h2 className={s.eqTitle}>Vehicle equipment</h2>
       <svg className={s.icon}>
-        <use href="/public/symbol-defs.svg#icon-divider" />
+        <use href="../../../public/symbol-defs.svg#icon-divider" />
       </svg>
       <ul className={s.eqBoard}>
         {equipment.map((item) => (
@@ -40,7 +40,7 @@ const VehicleEq = () => {
           >
             <div className={s.eqItem}>
               <svg className={s.eqIcon}>
-                <use href={`/public/symbol-defs.svg#${item.icon}`} />
+                <use href={`../../../public/symbol-defs.svg#${item.icon}`} />
               </svg>
               <p className={s.iconTitle}>{item.label}</p>
             </div>
