@@ -6,7 +6,6 @@ import Loader from "../Loader/Loader";
 import { Suspense, useEffect, useRef } from "react";
 import { fetchAllCampers } from "../../redux/trucks/operations";
 import clsx from "clsx";
-import Form from "../Form/Form";
 
 const Details = () => {
   const { id } = useParams();
@@ -89,9 +88,6 @@ const Details = () => {
           <NavLink to="reviews" className={buildLinkClass}>
             Reviews
           </NavLink>
-        </div>
-        <div className={s.detailsForm}>
-          <Form />
         </div>
       </div>
       <div>

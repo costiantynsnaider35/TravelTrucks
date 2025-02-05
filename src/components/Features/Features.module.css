@@ -1,3 +1,9 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
 .featContainer {
   display: flex;
   width: 631px;
@@ -51,6 +57,11 @@
   font-style: normal;
   font-weight: 500;
   line-height: 24px;
+}
+
+.featVehContainer {
+  display: flex;
+  flex-direction: row;
 }
 .featVehicle {
   display: flex;

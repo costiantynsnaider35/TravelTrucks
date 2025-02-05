@@ -1,12 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import HomePage from "./pages/HomePage/HomePage";
-import CatalogPage from "./pages/CatalogPage/CatalogPage";
-import DetailsPage from "./pages/DetailsPage/DetailsPage";
+import { lazy, Suspense } from "react";
 import Loader from "./components/Loader/Loader";
-import { Suspense } from "react";
-import Features from "./components/Features/Features";
-import Reviews from "./components/Reviews/Reviews";
+
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const CatalogPage = lazy(() => import("./pages/CatalogPage/CatalogPage"));
+const DetailsPage = lazy(() => import("./pages/DetailsPage/DetailsPage"));
+const Features = lazy(() => import("./components/Features/Features"));
+const Reviews = lazy(() => import("./components/Reviews/Reviews"));
 
 const App = () => {
   return (

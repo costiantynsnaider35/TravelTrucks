@@ -16,10 +16,10 @@ const VehicleEq = () => {
   };
 
   const equipment = [
-    { id: "ac", label: "AC", icon: "icon-wind" },
-    { id: "automatic", label: "Automatic", icon: "icon-diagram" },
+    { id: "AC", label: "AC", icon: "icon-wind" },
+    { id: "transmission", label: "Automatic", icon: "icon-diagram" },
     { id: "kitchen", label: "Kitchen", icon: "icon-Group1" },
-    { id: "tv", label: "TV", icon: "icon-tv" },
+    { id: "TV", label: "TV", icon: "icon-tv" },
     { id: "bathroom", label: "Bathroom", icon: "icon-ph_shower" },
   ];
 

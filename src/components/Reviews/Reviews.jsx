@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import s from "./Reviews.module.css";
 import { selectCampers } from "../../redux/trucks/selectors";
+import Form from "../Form/Form";
 
 const Reviews = () => {
   const { id } = useParams();
@@ -29,28 +30,35 @@ const Reviews = () => {
   };
 
   return (
-    <div className={s.reviewsContainer}>
-      {reviews.length > 0 ? (
-        reviews.map((review, index) => (
-          <div key={index} className={s.reviewsList}>
-            <div className={s.reviewsItem}>
-              <h3 className={s.reviewsName}>
-                {firstLetter(review.reviewer_name)}
-              </h3>
-              <div className={s.reviewsRating}>
-                <h3 className={s.reviewsAuthorName}>{review.reviewer_name}</h3>
-                <div className={s.starsRating}>
-                  {renderStars(review.reviewer_rating)}
+    <div className={s.container}>
+      <div className={s.reviewsContainer}>
+        {reviews.length > 0 ? (
+          reviews.map((review, index) => (
+            <div key={index} className={s.reviewsList}>
+              <div className={s.reviewsItem}>
+                <h3 className={s.reviewsName}>
+                  {firstLetter(review.reviewer_name)}
+                </h3>
+                <div className={s.reviewsRating}>
+                  <h3 className={s.reviewsAuthorName}>
+                    {review.reviewer_name}
+                  </h3>
+                  <div className={s.starsRating}>
+                    {renderStars(review.reviewer_rating)}
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <p className={s.reviewsComment}>{review.comment}</p>
-          </div>
-        ))
-      ) : (
-        <p className={s.noReviews}>No reviews available for this camper.</p>
-      )}
+              <p className={s.reviewsComment}>{review.comment}</p>
+            </div>
+          ))
+        ) : (
+          <p className={s.noReviews}>No reviews available for this camper.</p>
+        )}
+      </div>
+      <div>
+        <Form />
+      </div>
     </div>
   );
 };

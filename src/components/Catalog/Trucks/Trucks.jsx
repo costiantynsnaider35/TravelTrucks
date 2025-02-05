@@ -13,6 +13,11 @@ import {
   selectVehicleFormFilter,
 } from "../../../redux/filters/selectors";
 import { fetchAllCampers } from "../../../redux/filters/operations";
+import {
+  setLocationFilter,
+  setVehicleEquipmentFilter,
+  setVehicleFormFilter,
+} from "../../../redux/filters/slice";
 
 const Trucks = () => {
   const dispatch = useDispatch();
@@ -35,7 +40,14 @@ const Trucks = () => {
     if (campers.length === 0) {
       dispatch(fetchAllCampers());
     } else {
-      setDisplayedCampers(campers);
+      const normalizedCampers = campers.map((camper) => {
+        const normalizedCamper = {};
+        Object.keys(camper).forEach((key) => {
+          normalizedCamper[key.toLowerCase()] = camper[key];
+        });
+        return normalizedCamper;
+      });
+      setDisplayedCampers(normalizedCampers);
       setIsDataLoaded(true);
     }
   }, [dispatch, campers]);
@@ -46,6 +58,15 @@ const Trucks = () => {
   }, []);
 
   useEffect(() => {
+    const savedFormState = JSON.parse(localStorage.getItem("formState"));
+    if (savedFormState) {
+      dispatch(setLocationFilter(savedFormState.location));
+      dispatch(setVehicleFormFilter(savedFormState.selectedForms));
+      dispatch(setVehicleEquipmentFilter(savedFormState.selectedEquipment));
+    }
+  }, [dispatch]);
+
+  useEffect(() => {
     let filtered = campers;
 
     if (location.trim()) {
@@ -54,29 +75,23 @@ const Trucks = () => {
       );
     }
 
-    if (selectedForms.length) {
+    if (selectedForms.length > 0) {
       filtered = filtered.filter((camper) =>
         selectedForms.includes(camper.form)
       );
     }
-    // Применение фильтров оборудования
-    selectedEquipment.forEach((filter) => {
-      console.log(`Applying filter: ${filter.toLowerCase()}`);
+
+    if (selectedEquipment.length > 0) {
       filtered = filtered.filter((camper) => {
-        console.log(`Camper ${camper.id}:`, camper);
-        if (filter.toLowerCase() === "transmission") {
-          return (
-            camper[filter.toLowerCase()] &&
-            camper[filter.toLowerCase()] === "automatic"
-          );
-        } else {
-          return (
-            camper[filter.toLowerCase()] &&
-            camper[filter.toLowerCase()] === true
-          );
-        }
+        return selectedEquipment.every((filter) => {
+          if (filter === "transmission") {
+            return camper.transmission === "automatic";
+          }
+
+          return camper[filter] === true;
+        });
       });
-    });
+    }
 
     setDisplayedCampers(filtered);
 
@@ -86,7 +101,7 @@ const Trucks = () => {
 
     if (visibleItems > filtered.length) {
       setVisibleItems(filtered.length);
-    } else if (filtered.length > 4 && visibleItems === 0) {
+    } else if (visibleItems < filtered.length) {
       setVisibleItems(4);
     }
   }, [
@@ -100,11 +115,17 @@ const Trucks = () => {
 
   const handleLoadMore = () => {
     setIsLoadingMore(true);
-    setVisibleItems((prevValue) => {
-      const newValue = prevValue + 4;
-      return newValue;
-    });
+    setVisibleItems((prevValue) => prevValue + 4);
     setIsLoadingMore(false);
+  };
+
+  const handleReviewLinkClick = () => {
+    const formState = {
+      location,
+      selectedForms,
+      selectedEquipment,
+    };
+    localStorage.setItem("formState", JSON.stringify(formState));
   };
 
   const handleIconClick = (id) => {
@@ -163,6 +184,9 @@ const Trucks = () => {
               <Link
                 to={`/catalog/${camper.id}/reviews`}
                 className={s.locationLink}
+                onClick={() => {
+                  handleReviewLinkClick();
+                }}
               >
                 <p>
                   {camper.rating}({camper.reviews.length} Reviews)
