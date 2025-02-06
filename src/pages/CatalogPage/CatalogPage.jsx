@@ -7,14 +7,10 @@ import VehicleType from "../../components/VehicleType/VehicleType";
 const CatalogPage = () => {
   return (
     <div className="catalogPage">
-      <div>
-        <Location />
-        <VehicleEq />
-        <VehicleType />
-      </div>
-      <div>
-        <Trucks />
-      </div>
+      <Location />
+      <VehicleEq />
+      <VehicleType />
+      <Trucks />
     </div>
   );
 };
