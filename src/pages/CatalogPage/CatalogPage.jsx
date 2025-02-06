@@ -8,7 +8,9 @@ import s from "./CatalogPage.module.css";
 const CatalogPage = () => {
   return (
     <div>
-      <Header />
+      <div>
+        <Header />
+      </div>
       <div className={s.catalogPage}>
         <div>
           <div className={s.location}>
