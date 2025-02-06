@@ -1,4 +1,4 @@
-import TrucksCatalog from "../../components/Catalog/TrucksCatalog/TrucksCatalog";
+import Trucks from "../../components/Catalog/Trucks/Trucks";
 import Location from "../../components/Location/Location";
 import VehicleEq from "../../components/VehicleEq/VehicleEq";
 import VehicleType from "../../components/VehicleType/VehicleType";
@@ -21,7 +21,7 @@ const CatalogPage = () => {
         </div>
       </div>
       <div>
-        <TrucksCatalog />
+        <Trucks />
       </div>
     </div>
   );
