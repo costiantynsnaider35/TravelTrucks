@@ -1,5 +1,5 @@
 .catalog {
-  display: flex;
+  display: flex !important;
   flex-direction: row;
   width: 1440px;
   max-height: 1772px;
