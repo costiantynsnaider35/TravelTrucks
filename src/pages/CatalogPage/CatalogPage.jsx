@@ -6,7 +6,7 @@ import s from "./CatalogPage.module.css";
 
 const CatalogPage = () => {
   return (
-    <div className={s.catalogPage}>
+    <div className={s.catalog}>
       <div>
         <div className={s.location}>
           <p>Location</p>
@@ -20,6 +20,7 @@ const CatalogPage = () => {
           <VehicleType />
         </div>
       </div>
+
       <div>
         <Trucks />
       </div>

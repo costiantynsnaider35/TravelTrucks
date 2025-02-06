@@ -1,8 +1,8 @@
-.catalogPage {
+.catalog {
   display: flex;
   flex-direction: row;
   width: 1440px;
-  height: 1772px;
+  max-height: 1772px;
   background-color: #fff;
   gap: 64px;
   padding: 48px 64px 52px 64px;
