@@ -15,7 +15,7 @@ const CatalogPage = () => {
             <p>Location</p>
             <Location />
           </div>
-          <div className={s.VehicleEq}>
+          <div>
             <p className={s.filtersTitle}>Filters</p>
             <VehicleEq />
           </div>

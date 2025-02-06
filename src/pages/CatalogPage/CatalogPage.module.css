@@ -1,4 +1,6 @@
 .catalogPage {
+  display: flex;
+  flex-direction: row;
   width: 1440px;
   height: 1772px;
   background-color: #fff;
@@ -8,8 +10,6 @@
   padding: 48px 64px 52px 64px;
 }
 .location {
-  top: 120px;
-  left: 64px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -31,7 +31,4 @@
   font-style: normal;
   font-weight: 500;
   line-height: 24px;
-}
-.VehicleEq {
-  margin-bottom: 32px;
 }
