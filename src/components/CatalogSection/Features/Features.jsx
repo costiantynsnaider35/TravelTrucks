@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import s from "./Features.module.css";
-import { selectCampers } from "../../redux/trucks/selectors";
 import { useParams } from "react-router-dom";
+import { selectCampers } from "../../../redux/trucks/selectors";
 import Form from "../Form/Form";
 
 const Features = () => {

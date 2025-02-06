@@ -1,11 +1,11 @@
-import s from "./VehicleType.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { setVehicleFormFilter } from "../../redux/filters/slice";
 import {
   fetchAllCampers,
   fetchCampersByForm,
-} from "../../redux/filters/operations";
-import { selectVehicleFormFilter } from "../../redux/filters/selectors";
+} from "../../../redux/filters/operations";
+import { selectVehicleFormFilter } from "../../../redux/filters/selectors";
+import { setVehicleFormFilter } from "../../../redux/filters/slice";
+import s from "./VehicleType.module.css";
+import { useDispatch, useSelector } from "react-redux";
 
 const VehicleType = () => {
   const dispatch = useDispatch();

@@ -1,12 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
 import s from "./Location.module.css";
 import { useCallback, useEffect, useState } from "react";
-import { selectError } from "../../redux/filters/selectors";
+import { selectError } from "../../../redux/filters/selectors";
 import {
   fetchAllCampers,
   fetchCampersByLocation,
-} from "../../redux/filters/operations";
-import { setLocationFilter } from "../../redux/filters/slice";
+} from "../../../redux/filters/operations";
+import { setLocationFilter } from "../../../redux/filters/slice";
+
+const extractCity = (location) => {
+  const parts = location.split(", ");
+  return parts.length > 1 ? parts[1].trim() : location.trim();
+};
 
 const Location = () => {
   const dispatch = useDispatch();
@@ -14,13 +19,13 @@ const Location = () => {
   const error = useSelector(selectError);
 
   const handleFetchCampers = useCallback(() => {
-    if (location.trim()) {
-      dispatch(fetchCampersByLocation(location.trim()));
+    const city = extractCity(location);
+    if (city) {
+      dispatch(fetchCampersByLocation(city));
     } else {
       dispatch(fetchAllCampers());
     }
   }, [location, dispatch]);
-
   useEffect(() => {
     handleFetchCampers();
   }, [location, handleFetchCampers]);
@@ -34,7 +39,6 @@ const Location = () => {
 
   return (
     <div className={s.location}>
-      <p className={s.title}>Location</p>
       <div className={s.inputContainer}>
         <svg className={s.inputIcon}>
           <use href="/img/symbol-defs.svg#icon-Map" />

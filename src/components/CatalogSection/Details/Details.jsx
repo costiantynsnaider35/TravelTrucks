@@ -1,11 +1,11 @@
 import { NavLink, Outlet, useLocation, useParams } from "react-router-dom";
 import s from "./Details.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCampers, selectLoading } from "../../redux/trucks/selectors";
-import Loader from "../Loader/Loader";
 import { Suspense, useEffect, useRef } from "react";
-import { fetchAllCampers } from "../../redux/trucks/operations";
 import clsx from "clsx";
+import { selectCampers, selectLoading } from "../../../redux/trucks/selectors";
+import { fetchAllCampers } from "../../../redux/trucks/operations";
+import Loader from "../../Loader/Loader";
 
 const Details = () => {
   const { id } = useParams();

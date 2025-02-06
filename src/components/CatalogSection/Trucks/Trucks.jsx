@@ -2,8 +2,8 @@ import { useEffect, useState, useMemo } from "react";
 import s from "./Trucks.module.css";
 import { useDispatch, useSelector } from "react-redux";
 
-import Loader from "../Loader/Loader";
-import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
+import Loader from "../../Loader/Loader";
+import LoadMoreBtn from "./LoadMoreBtn/LoadMoreBtn";
 import { Link } from "react-router-dom";
 import {
   selectCampers,
@@ -11,13 +11,14 @@ import {
   selectLocation,
   selectVehicleEquipmentFilter,
   selectVehicleFormFilter,
-} from "../../redux/filters/selectors";
-import { fetchAllCampers } from "../../redux/filters/operations";
+} from "../../../redux/filters/selectors";
+import { fetchAllCampers } from "../../../redux/filters/operations";
 import {
   setLocationFilter,
   setVehicleEquipmentFilter,
   setVehicleFormFilter,
-} from "../../redux/filters/slice";
+} from "../../../redux/filters/slice";
+import toast, { Toaster } from "react-hot-toast";
 
 const Trucks = () => {
   const dispatch = useDispatch();
@@ -121,8 +122,10 @@ const Trucks = () => {
     let updatedFavorites;
     if (favorites.includes(id)) {
       updatedFavorites = favorites.filter((favoriteId) => favoriteId !== id);
+      toast.error("Camper has been successfully removed from the Favorites!");
     } else {
       updatedFavorites = [...favorites, id];
+      toast.success("Camper has been successfully added to Favorites!");
     }
     setFavorites(updatedFavorites);
     localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
@@ -164,6 +167,16 @@ const Trucks = () => {
                 >
                   <use href="/img/symbol-defs.svg#icon-Property-1Default" />
                 </svg>
+                <Toaster
+                  position="top-center"
+                  reverseOrder={false}
+                  toastOptions={{
+                    style: {
+                      marginTop: "50px",
+                      fontSize: "16px",
+                    },
+                  }}
+                />
               </div>
             </div>
             <div className={s.camperLocation}>

@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import s from "./Reviews.module.css";
-import { selectCampers } from "../../redux/trucks/selectors";
+import { selectCampers } from "../../../redux/trucks/selectors";
 import Form from "../Form/Form";
 
 const Reviews = () => {

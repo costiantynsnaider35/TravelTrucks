@@ -6,9 +6,13 @@ import Loader from "./components/Loader/Loader";
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const CatalogPage = lazy(() => import("./pages/CatalogPage/CatalogPage"));
 const DetailsPage = lazy(() => import("./pages/DetailsPage/DetailsPage"));
-const Features = lazy(() => import("./components/Features/Features"));
-const Reviews = lazy(() => import("./components/Reviews/Reviews"));
-const Header = lazy(() => import("./components/Header/Header"));
+const Features = lazy(() =>
+  import("./components/CatalogSection/Features/Features")
+);
+const Reviews = lazy(() =>
+  import("./components/CatalogSection/Reviews/Reviews")
+);
+const Header = lazy(() => import("./components/WelcomeSection/Header/Header"));
 
 const App = () => {
   return (
