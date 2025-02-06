@@ -6,7 +6,7 @@ import s from "./CatalogPage.module.css";
 
 const CatalogPage = () => {
   return (
-    <div className={s.CatalogPage}>
+    <div className={s.catalogPage}>
       <Location />
       <VehicleEq />
       <VehicleType />
