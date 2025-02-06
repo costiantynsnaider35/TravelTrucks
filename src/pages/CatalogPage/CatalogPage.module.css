@@ -4,8 +4,6 @@
   width: 1440px;
   height: 1772px;
   background-color: #fff;
-  display: flex;
-  flex-direction: row;
   gap: 64px;
   padding: 48px 64px 52px 64px;
 }
