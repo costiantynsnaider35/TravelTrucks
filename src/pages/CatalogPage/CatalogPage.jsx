@@ -3,6 +3,7 @@ import Location from "../../components/Location/Location";
 import VehicleEq from "../../components/VehicleEq/VehicleEq";
 import VehicleType from "../../components/VehicleType/VehicleType";
 import s from "./CatalogPage.module.css";
+console.log("Style", s);
 
 const CatalogPage = () => {
   return (
