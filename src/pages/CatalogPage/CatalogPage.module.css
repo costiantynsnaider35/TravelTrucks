@@ -2,31 +2,8 @@
   display: flex;
   flex-direction: row;
   width: 1440px;
-  max-height: 1772px;
+  height: 1772px;
   background-color: #fff;
   gap: 64px;
   padding: 48px 64px 52px 64px;
-}
-.location {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 40px;
-}
-.location p {
-  color: #6c717b;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
-}
-.filtersTitle {
-  margin-bottom: 32px;
-  color: #475467;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 24px;
 }

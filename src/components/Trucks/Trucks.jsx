@@ -2,7 +2,7 @@ import { useEffect, useState, useMemo } from "react";
 import s from "./Trucks.module.css";
 import { useDispatch, useSelector } from "react-redux";
 
-import Loader from "../../Loader/Loader";
+import Loader from "../Loader/Loader";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 import { Link } from "react-router-dom";
 import {
@@ -11,13 +11,13 @@ import {
   selectLocation,
   selectVehicleEquipmentFilter,
   selectVehicleFormFilter,
-} from "../../../redux/filters/selectors";
-import { fetchAllCampers } from "../../../redux/filters/operations";
+} from "../../redux/filters/selectors";
+import { fetchAllCampers } from "../../redux/filters/operations";
 import {
   setLocationFilter,
   setVehicleEquipmentFilter,
   setVehicleFormFilter,
-} from "../../../redux/filters/slice";
+} from "../../redux/filters/slice";
 
 const Trucks = () => {
   const dispatch = useDispatch();

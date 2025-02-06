@@ -25,6 +25,7 @@ const VehicleEq = () => {
 
   return (
     <div className={s.eqContainer}>
+      <p className={s.title}>Filters</p>
       <h2 className={s.eqTitle}>Vehicle equipment</h2>
       <svg className={s.icon}>
         <use href="/img/symbol-defs.svg#icon-divider" />

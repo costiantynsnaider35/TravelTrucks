@@ -5,6 +5,7 @@
   gap: 8px;
   width: 360px;
   position: relative;
+  margin-bottom: 40px;
 }
 .inputTitle {
   align-self: stretch;
@@ -52,4 +53,12 @@
   position: absolute;
   top: 0%;
   left: 0%;
+}
+.title {
+  align-self: stretch;
+  color: #6c717b;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
 }

@@ -34,6 +34,7 @@ const Location = () => {
 
   return (
     <div className={s.location}>
+      <p className={s.title}>Location</p>
       <div className={s.inputContainer}>
         <svg className={s.inputIcon}>
           <use href="/img/symbol-defs.svg#icon-Map" />
