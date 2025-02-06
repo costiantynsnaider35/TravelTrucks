@@ -26,7 +26,7 @@ const VehicleType = () => {
     <div className={s.typeContainer}>
       <h2 className={s.typeTitle}>Vehicle type</h2>
       <svg className={s.icon}>
-        <use href="/src/img/symbol-defs.svg#icon-divider" />
+        <use href="/img/symbol-defs.svg#icon-divider" />
       </svg>
       <ul className={s.typeBoard}>
         <li
@@ -37,7 +37,7 @@ const VehicleType = () => {
         >
           <div className={s.typeItem}>
             <svg className={s.typeIcon}>
-              <use href="/src/img/symbol-defs.svg#icon-bi_grid-1x2" />
+              <use href="/img/symbol-defs.svg#icon-bi_grid-1x2" />
             </svg>
             <p className={s.iconTitle}>Panel Truck</p>
           </div>
@@ -50,7 +50,7 @@ const VehicleType = () => {
         >
           <div className={s.typeItem}>
             <svg className={s.typeIcon}>
-              <use href="/src/img/symbol-defs.svg#icon-bi_grid" />
+              <use href="/img/symbol-defs.svg#icon-bi_grid" />
             </svg>
             <p className={s.iconTitle}>Fully Integrated</p>
           </div>
@@ -61,7 +61,7 @@ const VehicleType = () => {
         >
           <div className={s.typeItem}>
             <svg className={s.typeIcon}>
-              <use href="/src/img/symbol-defs.svg#icon-bi_grid-3x3-gap" />
+              <use href="/img/symbol-defs.svg#icon-bi_grid-3x3-gap" />
             </svg>
             <p className={s.iconTitle}>Alcove</p>
           </div>

@@ -36,7 +36,7 @@ const Location = () => {
     <div className={s.location}>
       <div className={s.inputContainer}>
         <svg className={s.inputIcon}>
-          <use href="/src/img/symbol-defs.svg#icon-Map" />
+          <use href="/img/symbol-defs.svg#icon-Map" />
         </svg>
         <input
           type="text"
