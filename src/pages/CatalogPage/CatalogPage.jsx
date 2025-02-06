@@ -19,11 +19,11 @@ const CatalogPage = () => {
             <p className={s.filtersTitle}>Filters</p>
             <VehicleEq />
           </div>
-          <div className={s.VehicleType}>
+          <div>
             <VehicleType />
           </div>
         </div>
-        <div className={s.TrucksCatalog}>
+        <div>
           <TrucksCatalog />
         </div>
       </div>
