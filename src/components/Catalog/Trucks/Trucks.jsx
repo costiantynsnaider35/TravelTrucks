@@ -98,24 +98,13 @@ const Trucks = () => {
     if (isDataLoaded) {
       setInputError(filtered.length === 0);
     }
-
-    if (visibleItems > filtered.length) {
-      setVisibleItems(filtered.length);
-    } else if (visibleItems < filtered.length) {
-      setVisibleItems(4);
-    }
-  }, [
-    campers,
-    location,
-    selectedForms,
-    selectedEquipment,
-    visibleItems,
-    isDataLoaded,
-  ]);
+  }, [campers, location, selectedForms, selectedEquipment, isDataLoaded]);
 
   const handleLoadMore = () => {
     setIsLoadingMore(true);
-    setVisibleItems((prevValue) => prevValue + 4);
+    setVisibleItems((prevValue) =>
+      Math.min(prevValue + 4, displayedCampers.length)
+    );
     setIsLoadingMore(false);
   };
 

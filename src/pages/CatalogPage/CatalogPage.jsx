@@ -7,22 +7,25 @@ import s from "./CatalogPage.module.css";
 
 const CatalogPage = () => {
   return (
-    <div className={s.catalogPage}>
+    <div>
       <Header />
-      <div className={s.location}>
-        <p>Location</p>
-        <Location />
-      </div>
-
-      <div className={s.VehicleEq}>
-        <p className={s.filtersTitle}>Filters</p>
-        <VehicleEq />
-      </div>
-      <div className={s.VehicleType}>
-        <VehicleType />
-      </div>
-      <div className={s.TrucksCatalog}>
-        <TrucksCatalog />
+      <div className={s.catalogPage}>
+        <div>
+          <div className={s.location}>
+            <p>Location</p>
+            <Location />
+          </div>
+          <div className={s.VehicleEq}>
+            <p className={s.filtersTitle}>Filters</p>
+            <VehicleEq />
+          </div>
+          <div className={s.VehicleType}>
+            <VehicleType />
+          </div>
+        </div>
+        <div className={s.TrucksCatalog}>
+          <TrucksCatalog />
+        </div>
       </div>
     </div>
   );

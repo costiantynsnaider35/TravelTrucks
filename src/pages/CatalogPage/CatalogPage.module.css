@@ -1,11 +1,13 @@
 .catalogPage {
   width: 1440px;
-  height: 1836px;
+  height: 1772px;
   background-color: #fff;
-  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 64px;
+  padding: 48px 64px 52px 64px;
 }
 .location {
-  position: absolute;
   top: 120px;
   left: 64px;
   display: flex;
@@ -13,6 +15,7 @@
   justify-content: flex-end;
   align-items: flex-start;
   gap: 16px;
+  margin-bottom: 40px;
 }
 .location p {
   color: #6c717b;
@@ -30,17 +33,9 @@
   line-height: 24px;
 }
 .VehicleEq {
-  position: absolute;
-  top: 256px;
-  left: 64px;
+  margin-bottom: 32px;
 }
 .VehicleType {
-  position: absolute;
-  top: 608px;
-  left: 64px;
 }
 .TrucksCatalog {
-  position: absolute;
-  top: 120px;
-  right: 64px;
 }
