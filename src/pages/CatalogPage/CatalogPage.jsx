@@ -16,13 +16,9 @@ const CatalogPage = () => {
           <p className={s.filtersTitle}>Filters</p>
           <VehicleEq />
         </div>
-        <div>
-          <VehicleType />
-        </div>
+        <VehicleType />
       </div>
-      <div>
-        <Trucks />
-      </div>
+      <Trucks />
     </div>
   );
 };
